@@ -4,7 +4,7 @@
 
 #### Overview
 
-The aim of this lab is to identify vulnerabilities in a deliberately vulnerable system (Metasploitable2) for further investigation.
+The aim of this lab was to identify live hosts and enumerate exposed services on a deliberately vulnerable system (Metasploitable2, for further investigation.
 
 
 
@@ -24,7 +24,7 @@ The aim of this lab is to identify vulnerabilities in a deliberately vulnerable 
 
 \- Kali Linux (Attacker) – 192.168.56.30
 
-\- Metasploitable 2 (Vulnerable Linux Target) – 192.168.56.50
+\- Metasploitable2 (Vulnerable Linux Target) – 192.168.56.50
 
 \- Windows11 (Used in further labs) - 192.168.56.11
 

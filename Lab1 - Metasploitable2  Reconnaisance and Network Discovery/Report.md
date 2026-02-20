@@ -1,4 +1,4 @@
-#### Lab 1 – Network Reconnaissance & Host Discovery
+# Lab 1 – Network Reconnaissance & Host Discovery
 
 Environment: Kali + Metasploitable 2 + Windows 11
 
@@ -27,31 +27,33 @@ All vms are connected on a VirtualBox internal network.
 
 - Document findings 
 
-# Step 1 – Verify Network Configuration
+### Step 1 – Verify Network Configuration
 ip a (on each vm to verify IP addresses)
-Screenshot 1
+(Screenshot 1)
 
-# Step 2 – Verify Metasploitable2 is Reachable
+### Step 2 – Verify Metasploitable2 is Reachable
 ping 192.168.56.50
+
 Successful ICMP replies confirms: Layer 3 connectivity
-Screenshot 2
+(Screenshot 2)
 
-# Step 3 – Host Discovery
+### Step 3 – Host Discovery
 nmap -sn 192.168.56.0/24
-The -sn option did a ping scan without port scanning and identified the 3 vms
-Screenshot 3
 
-# Step 4 – Port Scanning & Service Enumeration
+The -sn option did a ping scan without port scanning and identified the 3 vms
+(Screenshot 3)
+
+### Step 4 – Port Scanning & Service Enumeration
 nmap -sS -sV -A 192.168.56.50
 
 -sS TCP SYN (stealth) scan
 -sV Service version detection
 -A Aggressive scan
-Screenshot 4
+(Screenshot 4)
 
 Metasploitable exposes numerous outdated services, significantly increasing the attack surface.
 
-# Risk Analysis
+### Risk Analysis
 
 Even without exploiting, reconnaissance reveals:
 
@@ -63,7 +65,7 @@ Even without exploiting, reconnaissance reveals:
 
 If this were a production environment, exposure of services like FTP, Telnet, and SMB would be considered high risk.
 
-# Outcomes Achieved
+### Outcomes Achieved
 
 - Performed network reconnaissance
 
@@ -71,6 +73,6 @@ If this were a production environment, exposure of services like FTP, Telnet, an
 
 - Enumerated open ports and service versions
 
-- Interpret scan results 
+- Interpreted scan results 
 
 - Documented findings for formal reporting
