@@ -1,40 +1,56 @@
-### Lab 1  Network Reconnaissance and Host Discovery (Metasploitable2)
 
+# Lab 1 – Network Reconnaissance & Host Discovery (Metasploitable2)
 
+---
 
-#### Overview
+## 📝 Objective
+Identify live hosts and enumerate exposed services on a vulnerable target (Metasploitable2) within an isolated virtual lab environment.
 
-The aim of this lab was to identify live hosts and enumerate exposed services on a deliberately vulnerable system (Metasploitable2, for further investigation.
+---
 
+## 🧪 Environment
 
+**Virtual Machines Used**
+- **Kali Linux (Attacker):** 192.168.56.30  
+- **Metasploitable2 (Target):** 192.168.56.50  
+- **Windows 11 (Additional Target for later labs):** 192.168.56.11  
 
-##### Objectives
+**Network Setup**
+- VirtualBox Internal Network  
+- Subnet: `192.168.56.0/24`
 
-1\. Verify network connectivity between Kali and Metasploitable 2.
+---
 
-2\. Discover live hosts in the subnet.
+## 🔍 Initial Observation
+The goal of this lab was to perform reconnaissance without exploitation.  
+Tasks included verifying connectivity, discovering hosts, and enumerating services.
 
-3\. Enumerate open ports and services.
+---
 
-4\. Document host and service information for use in later labs.
+## 🧬 Analysis Summary
+- Verified connectivity between Kali and Metasploitable2  
+- Identified all live hosts on the subnet  
+- Enumerated open ports and service versions  
+- Identified outdated and vulnerable services on Metasploitable2  
+- Documented findings for use in later exploitation labs  
 
+---
 
+## 🧩 MITRE ATT&CK Mapping
+- **TA0043 – Reconnaissance**  
+- **T1595 – Active Scanning**  
+- **T1595.002 – Vulnerability Scanning**
 
-##### Virtual machines used:
+---
 
-\- Kali Linux (Attacker) – 192.168.56.30
-
-\- Metasploitable2 (Vulnerable Linux Target) – 192.168.56.50
-
-\- Windows11 (Used in further labs) - 192.168.56.11
-
-
-
-All vms were on internal network 192.168.56.0/24
-
-
-
-##### Key Outcomes
-
-Identified live hosts on an internal network, enumerated open ports and running services and gathered essential reconnaissance information for future exploitation.
-
+## 📁 Repository Structure
+```text
+/Lab01-Network-Recon/
+│
+├── README.md
+├── Notes.md
+└── /screenshots/
+      ├── 1-verify-IP-addresses.png
+      ├── 2-ping-Kali-to-Metasploitable2.png
+      ├── 3-nmap-live-host-discovery.png
+      └── 4-nmap-scan-results-Metasploitable2.png
