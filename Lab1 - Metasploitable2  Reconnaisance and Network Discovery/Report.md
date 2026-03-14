@@ -1,80 +1,103 @@
-# Lab 1 – Network Reconnaissance & Host Discovery
 
-Environment: Kali + Metasploitable 2 + Windows 11
+---
 
-## Introduction
+# 📓 **Notes.md – Lab 1: Network Reconnaissance & Host Discovery**
 
-This lab focuses on the reconnaissance phase of a penetration test within an isolated virtual lab environment.The aim is to identify live hosts and enumerate exposed services without performing exploitation.
+```markdown
+# Notes – Network Reconnaissance & Host Discovery (Metasploitable2)
 
-The target environment includes:
+## 1. Objective
+Perform structured reconnaissance to identify live hosts and enumerate exposed services on Metasploitable2.  
+This information will support later exploitation and defensive analysis.
 
-Kali Linux (Attacker) – 192.168.56.30
-Metasploitable 2 (Target) – 192.168.56.50
-Windows 11 (Secondary Target for use in further labs) - 192.168.56.11
+---
 
-All vms are connected on a VirtualBox internal network.
+## 2. Setup & Configuration
 
-## Objectives
+### Virtual Machines
+- Kali Linux – 192.168.56.30  
+- Metasploitable2 – 192.168.56.50  
+- Windows 11 – 192.168.56.11  
 
-- Verify network connectivity
-- Identify live hosts on the subnet
-- Enumerate open ports and services
-- Identify potential attack surface
-- Document findings 
+### Network
+- VirtualBox Internal Network  
+- Subnet: `192.168.56.0/24`
 
-### Step 1 – Verify Network Configuration
-ip a (on each vm to verify IP addresses)
-#### Screenshot
-![verify_connection](./screenshots/1-verify-IP-addresses.png)
+### Verification
+Used `ip a` on each VM to confirm correct addressing.
 
-### Step 2 – Verify Metasploitable2 is Reachable
-ping 192.168.56.50
+Screenshot:  
+`./screenshots/1-verify-IP-addresses.png`
 
-Successful ICMP replies confirms: Layer 3 connectivity
-#### Screenshot
-![pingresults](./screenshots/2-ping-Kali-to-Metasploitable2.png)
+---
 
-### Step 3 – Host Discovery
-nmap -sn 192.168.56.0/24
+## 3. Event Detection / Recon Steps
 
-The -sn option did a ping scan without port scanning and identified the 3 vms
-#### Screenshot
-![host-discovery](./screenshots/3-nmap-live-host-discovery.png)
+### Step 1 – Verify Connectivity
+Command:  
+`ping 192.168.56.50`  
+Confirmed ICMP replies → Layer 3 connectivity.
 
-### Step 4 – Port Scanning & Service Enumeration
-nmap -sS -sV -A 192.168.56.50
+Screenshot:  
+`./screenshots/2-ping-Kali-to-Metasploitable2.png`
 
--sS TCP SYN (stealth) scan
--sV Service version detection
--A Aggressive scan
+---
 
-#### Screenshot
-![port-service-enumeration](./screenshots/4-nmap-scan-results-Metasploitable2.png)
+### Step 2 – Host Discovery
+Command:  
+`nmap -sn 192.168.56.0/24`  
 
-Metasploitable exposes numerous outdated services, significantly increasing the attack surface.
+Findings:
+- Detected Kali, Metasploitable2, and Windows 11  
+- No port scanning performed (ping sweep only)
 
-### MITRE ATT&CK mapping
+Screenshot:  
+`./screenshots/3-nmap-live-host-discovery.png`
 
-- Tactic: Reconnaissance (TA0043)
-- Technique: Active Scanning (T1595)
-- Sub‑technique: Vulnerability Scanning (T1595.002)
+---
 
-### Findings
+### Step 3 – Port Scanning & Service Enumeration
+Command:  
+`nmap -sS -sV -A 192.168.56.50`
 
-- Metasploitable2 exposes 20+ services including FTP, Telnet, SSH, SMB, and MySQL
-- Several services run outdated or vulnerable versions
-- Indicators of misconfiguration
+Options:
+- `-sS` → SYN scan  
+- `-sV` → Service version detection  
+- `-A` → Aggressive scan (OS detection, scripts)
 
-If this were a production environment, exposure of services like FTP, Telnet, and SMB would be considered high risk.
+Findings:
+- 20+ open ports  
+- Outdated services (FTP, Telnet, SSH, SMB, MySQL, etc.)  
+- High attack surface exposure  
 
-### Outcomes Achieved
+Screenshot:  
+`./screenshots/4-nmap-scan-results-Metasploitable2.png`
 
-- Performed network reconnaissance
-- Identified live systems within a subnet
-- Enumerated open ports and service versions
-- Interpreted scan results 
-- Documented findings for formal reporting
+---
 
-### Why this matters
+## 4. MITRE ATT&CK Mapping
+- **TA0043 – Reconnaissance**  
+- **T1595 – Active Scanning**  
+- **T1595.002 – Vulnerability Scanning**
 
-Reconnaissance is the first phase of the cyber kill chain. Attackers use it to map the environment, identify weak points, and plan exploitation. Understanding this phase helps defenders recognise early indicators of compromise.
+---
+
+## 5. Recommendations
+- Restrict unnecessary services  
+- Disable insecure protocols (FTP, Telnet)  
+- Apply segmentation to limit exposure  
+- Implement host‑based firewalls  
+- Monitor for repeated scanning behaviour  
+
+---
+
+## 6. Conclusion
+The reconnaissance phase successfully identified live hosts and exposed services.  
+Metasploitable2 presents a large attack surface, making it ideal for future exploitation labs.
+
+---
+
+## 7. Additional Notes / Lessons Learned
+- Internal networks often expose more services than external ones  
+- Nmap’s `-A` flag provides rapid insight but is noisy  
+- Reconnaissance is essential for both attackers and defenders  
