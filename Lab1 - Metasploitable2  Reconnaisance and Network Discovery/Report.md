@@ -1,10 +1,5 @@
 
----
-
-# 📓 **Notes.md – Lab 1: Network Reconnaissance & Host Discovery**
-
-```markdown
-# Notes – Network Reconnaissance & Host Discovery (Metasploitable2)
+## 📓 **Lab 1: Network Reconnaissance & Host Discovery**
 
 ## 1. Objective
 Perform structured reconnaissance to identify live hosts and enumerate exposed services on Metasploitable2.  
