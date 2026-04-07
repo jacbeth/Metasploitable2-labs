@@ -24,7 +24,7 @@ Network-Reconnaisance & Host Discovery
 ### Steps taken
 - Verified connectivity with command:  `ping 192.168.56.50`  and confirmed ICMP replies → Layer 3 connectivity.
 ##### Screenshot verified IP addresses:  
-![verify_connectivity](./screenshots/1-verify-IP-addresses.pngpng)
+![verify_connectivity](./screenshots/1-verify-IP-addresses.png)
 ##### Screenshot ping Kali to Metasploitable2 result:  
 ./screenshots/2-ping-Kali-to-Metasploitable2.pn
 
