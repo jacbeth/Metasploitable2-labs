@@ -7,11 +7,11 @@ Identify live hosts and enumerate exposed services on a vulnerable target (Metas
 - **Kali Linux (Attacker):** 192.168.56.30  
 - **Metasploitable2 (Target):** 192.168.56.50  
 - **Windows 11 (Additional Target for later labs):** 192.168.56.11  
-**Network Setup:** VirtualBox Internal Network  Subnet: 192.168.56.0/24
+- **Network Setup:** VirtualBox Internal Network  Subnet: 192.168.56.0/24
 
 ### Repository Structure
 ```text
-/Network-Reconnaisance & Host Discovery/
+Network-Reconnaisance & Host Discovery
 │
 ├── README.md
 └── /screenshots/
@@ -24,7 +24,7 @@ Identify live hosts and enumerate exposed services on a vulnerable target (Metas
 ### Steps taken
 - Verified connectivity with command:  `ping 192.168.56.50`  and confirmed ICMP replies → Layer 3 connectivity.
 ##### Screenshot verified IP addresses:  
-![verifyconnectivity](./screenshots/1-verify-IP-addresses.pngpng)
+![verify_connectivity](./screenshots/1-verify-IP-addresses.pngpng)
 ##### Screenshot ping Kali to Metasploitable2 result:  
 ./screenshots/2-ping-Kali-to-Metasploitable2.pn
 
