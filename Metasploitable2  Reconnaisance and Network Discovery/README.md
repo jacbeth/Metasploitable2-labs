@@ -14,7 +14,7 @@ Identify live hosts and enumerate exposed services on a vulnerable target (Metas
 Network-Reconnaisance & Host Discovery
 │
 ├── README.md
-└── /screenshots/
+└── screenshots
       ├── 1-verify-IP-addresses.png
       ├── 2-ping-Kali-to-Metasploitable2.png
       ├── 3-nmap-live-host-discovery.png
@@ -26,13 +26,14 @@ Network-Reconnaisance & Host Discovery
 ##### Screenshot verified IP addresses:  
 ![verify_connectivity](./screenshots/1-verify-IP-addresses.png)
 ##### Screenshot ping Kali to Metasploitable2 result:  
-./screenshots/2-ping-Kali-to-Metasploitable2.pn
+![ping](./screenshots/2-ping-Kali-to-Metasploitable2.png)
 
 - Host Discovery with command:  nmap -sn 192.168.56.0/24 Detected: - Detected Kali, Metasploitable2, and Windows 11 (no port scanning performed (ping sweep only))
 #### Screenshot live host discovery:  
-./screenshots/3-nmap-live-host-discovery.png
+![host_discovery](./screenshots/3-nmap-live-host-discovery.png)
 
 - Port Scanning & Service Enumeration with command:  nmap -sS -sV -A 192.168.56.50
+![port-scanning](./screenshots/4-nmap-scan-results-Metasploitable2.png)
 
 ##### Nmap options used:
 - -sS → SYN scan  
