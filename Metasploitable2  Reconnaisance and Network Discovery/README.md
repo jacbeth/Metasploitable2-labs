@@ -1,6 +1,5 @@
 
 ## Network Reconnaissance & Host Discovery (Metasploitable2)
-
 ### Objective
 Identify live hosts and enumerate exposed services on a vulnerable target (Metasploitable2) within an isolated virtual lab environment.
 
@@ -12,10 +11,9 @@ Identify live hosts and enumerate exposed services on a vulnerable target (Metas
 
 ### Repository Structure
 ```text
-/Network-Recon/
+/Network-Reconnaisance & Host Discovery/
 │
 ├── README.md
-├── Notes.md
 └── /screenshots/
       ├── 1-verify-IP-addresses.png
       ├── 2-ping-Kali-to-Metasploitable2.png
@@ -23,12 +21,10 @@ Identify live hosts and enumerate exposed services on a vulnerable target (Metas
       └── 4-nmap-scan-results-Metasploitable2.png
 ```
       
-      
 ### Steps taken
 - Verified connectivity with command:  `ping 192.168.56.50`  and confirmed ICMP replies → Layer 3 connectivity.
-
 ##### Screenshot verified IP addresses:  
-./screenshots/1-verify-IP-addresses.png
+![verifyconnectivity](./screenshots/1-verify-IP-addresses.pngpng)
 ##### Screenshot ping Kali to Metasploitable2 result:  
 ./screenshots/2-ping-Kali-to-Metasploitable2.pn
 
