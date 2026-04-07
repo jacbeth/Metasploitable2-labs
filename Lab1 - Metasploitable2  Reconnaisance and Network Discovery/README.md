@@ -1,51 +1,21 @@
 
-# Lab 1 – Network Reconnaissance & Host Discovery (Metasploitable2)
+## Network Reconnaissance & Host Discovery (Metasploitable2)
 
----
-
-## 📝 Objective
+### Objective
 Identify live hosts and enumerate exposed services on a vulnerable target (Metasploitable2) within an isolated virtual lab environment.
 
----
-
-## 🧪 Environment
+### Environment
 
 **Virtual Machines Used**
 - **Kali Linux (Attacker):** 192.168.56.30  
 - **Metasploitable2 (Target):** 192.168.56.50  
 - **Windows 11 (Additional Target for later labs):** 192.168.56.11  
-
 **Network Setup**
-- VirtualBox Internal Network  
-- Subnet: `192.168.56.0/24`
+- VirtualBox Internal Network  Subnet: 192.168.56.0/24
 
----
-
-## 🔍 Initial Observation
-The goal of this lab was to perform reconnaissance without exploitation.  
-Tasks included verifying connectivity, discovering hosts, and enumerating services.
-
----
-
-## 🧬 Analysis Summary
-- Verified connectivity between Kali and Metasploitable2  
-- Identified all live hosts on the subnet  
-- Enumerated open ports and service versions  
-- Identified outdated and vulnerable services on Metasploitable2  
-- Documented findings for use in later exploitation labs  
-
----
-
-## 🧩 MITRE ATT&CK Mapping
-- **TA0043 – Reconnaissance**  
-- **T1595 – Active Scanning**  
-- **T1595.002 – Vulnerability Scanning**
-
----
-
-## 📁 Repository Structure
+### Repository Structure
 ```text
-/Lab01-Network-Recon/
+/Network-Recon/
 │
 ├── README.md
 ├── Notes.md
@@ -53,4 +23,51 @@ Tasks included verifying connectivity, discovering hosts, and enumerating servic
       ├── 1-verify-IP-addresses.png
       ├── 2-ping-Kali-to-Metasploitable2.png
       ├── 3-nmap-live-host-discovery.png
-      └── 4-nmap-scan-results-Metasploitable2.png
+      └── 4-nmap-scan-results-Metasploitable2.pngSteps taken
+
+- Verified connectivity with command:  `ping 192.168.56.50`  and confirmed ICMP replies → Layer 3 connectivity.
+Used `ip a` on each VM to confirm correct addressing.
+
+##### Screenshot verified IP addresses:  
+`./screenshots/1-verify-IP-addresses.png`
+
+##### Screenshot ping Kali to Metasploitable2 result:  
+`./screenshots/2-ping-Kali-to-Metasploitable2.png`
+
+- Host Discovery with command:  `nmap -sn 192.168.56.0/24`  
+- Detected: - Detected Kali, Metasploitable2, and Windows 11  (no port scanning performed (ping sweep only))
+
+Screenshot live host discovery:  
+`./screenshots/3-nmap-live-host-discovery.png`
+
+- Port Scanning & Service Enumeration with command:  `nmap -sS -sV -A 192.168.56.50`
+
+#### Nmap options used:
+- `-sS` → SYN scan  
+- `-sV` → Service version detection  
+- `-A` → Aggressive scan (OS detection, scripts)
+
+##### Identified:
+- 20+ open ports  
+- Outdated services (FTP, Telnet, SSH, SMB, MySQL, etc.)  
+- High attack surface exposure  
+
+Screenshot of nmap port and service scanning:  
+`./screenshots/4-nmap-scan-results-Metasploitable2.png`
+
+### MITRE ATT&CK Mapping
+- **TA0043 – Reconnaissance**  
+- **T1595 – Active Scanning**  
+- **T1595.002 – Vulnerability Scanning**
+
+### Analysis 
+- The lab identified live hosts, open ports,  service versions  and identified outdated and vulnerable services on Metasploitable2  
+
+### Recommendations
+- Restrict unnecessary services  
+- Disable insecure protocols (FTP, Telnet)  
+- Apply segmentation to limit exposure  
+- Implement host‑based firewalls  
+- Monitor for repeated scanning behaviour
+
+
