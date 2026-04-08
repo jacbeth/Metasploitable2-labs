@@ -33,7 +33,7 @@ Network-Reconnaisance & Host Discovery
 ![host_discovery](./screenshots/3-nmap-live-host-discovery.png)
 
 - Port Scanning & Service Enumeration with command:  nmap -sS -sV -A 192.168.56.50
-![port-scanning](./screenshots/4-nmap-scan-results-Metasploitable2.png)
+#### Screenshot of nmap port and service scanning: ![port-scanning](./screenshots/4-nmap-scan-results-Metasploitable2.png)
 
 ##### Nmap options used:
 - -sS → SYN scan  
@@ -41,8 +41,6 @@ Network-Reconnaisance & Host Discovery
 - `-A` → Aggressive scan (OS detection, scripts)
 ##### Identified:
 - 20+ open ports, outdated services (FTP, Telnet, SSH, SMB, MySQL, etc.) and high attack surface exposure  
-Screenshot of nmap port and service scanning:  
-./screenshots/4-nmap-scan-results-Metasploitable2.png
 
 ### MITRE ATT&CK Mapping
 - **TA0043 – Reconnaissance**  
